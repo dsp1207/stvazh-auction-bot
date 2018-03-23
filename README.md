@@ -1,4 +1,4 @@
 # stvazh-auction-bot
 Telegram bot for enhancement of Strassenverkehrsamt Zürich license plate auctions. 
 
-Link to bot: t.me/stvazhAuctionBot
+<a href="t.me/stvazhAuctionBot">This is the bot</a>
