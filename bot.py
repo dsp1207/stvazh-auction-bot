@@ -142,8 +142,8 @@ if(first_weekly<now):
 first_weekly_unix = time.mktime(first_weekly.timetuple())
 now_unix = time.mktime(now.timetuple())
 
-mins_til_first_update = (first_weekly_unix - now_unix)/60
+secs_til_first_update = (first_weekly_unix - now_unix)
 
 week_in_mins = 10080
 
-weekly_update_queue = queue.run_repeating(weeklyUpdate, interval=week_in_mins, first=mins_til_first_update)
+weekly_update_queue = queue.run_repeating(weeklyUpdate, interval=week_in_mins, first=secs_til_first_update)
