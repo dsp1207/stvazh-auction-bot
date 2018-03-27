@@ -20,16 +20,18 @@ def initWorksheet(keyfile, sheetname):
   return worksheet
 
 
-def currentAuctions(worksheet, queryArr):
-  "takes a worksheet object and an array of arrays with queryplates,chat_id"
-  "returns a dict with queryplate: price"
-  date_today = str(date.today())
+def currentAuctions(worksheet):
+  """ Returns the active auctions with the latest prices
+  takes a worksheet object
+  returns a dict with queryplate: current price"""
   plate_col = 1
-  price_col = 3
-  #set current row to the first occurrence of today's date found in the date column
-  current_row = worksheet.col_values(2).index(date_today)+1
+  #set current row to last non-empty row in date col, then backtraces upwards to the first row with the current date
+  last_row = worksheet.col_values(2).index("")
+  current_auction_startdate = worksheet.cell(last_row, 2).value
+  current_row = worksheet.col_values(2).index(current_auction_startdate)+1
+  price_col = worksheet.row_values(current_row).index("")
   current_auctions_dict = {}
-  # Create dict of sheet's plates of this week with price {plateno: price, plateno2: price2}
+  # Create dict of sheet's plates of this week with price {plate no: price, plateno2: price2}
   pointer_row = current_row
   while(worksheet.cell(pointer_row, plate_col).value!=""):
     current_row_plate = worksheet.cell(pointer_row, plate_col).value
