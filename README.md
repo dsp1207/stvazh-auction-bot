@@ -8,4 +8,4 @@ This Telegram bot notifies you, when a license plate number, which contains a sp
 
 The live version is also connected to a database with historical data of the auctions, which are scraped from the <a href="https://www.auktion.stva.zh.ch/">auction page</a>
 
-<a href="http://t.me/stvazhAuctionBot">Try it out</a>
+<a href="https://t.me/StvaZhAuctionBot">Try it out</a>
